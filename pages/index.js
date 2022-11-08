@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Header from '../components/Header/Header'
 
 export default function Home() {
   return (
@@ -9,11 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <header>
-        Menu <br/>
-        Banner <br/>
-        User <br/>
-      </header>
+      <Header />
 
       <main >
         Listas da TimeLine
