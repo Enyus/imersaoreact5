@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import Header from '../components/Header/Header'
+import Header from '../components/Header'
 import Playlists from '../components/Playlists'
 import Favoritos from '../components/Favoritos'
+import { useState } from 'react'
 
 export default function Home() {
+  const [valorDoFiltro, setValorDoFiltro] = useState("")
 
   return (
     <>
@@ -13,9 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Header />
+      <Header valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
 
-      <Playlists />
+      <Playlists searchValue={valorDoFiltro} />
 
       <Favoritos />
     </>

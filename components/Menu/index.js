@@ -2,7 +2,9 @@ import Image from "next/image";
 import React from "react";
 import StyledMenu from "./styles";
 
-function Menu (props) {
+function Menu ({ valorDoFiltro, setValorDoFiltro }) {
+    const valorDaBusca = valorDoFiltro;
+    const setValorDaBusca = setValorDoFiltro;
 
     const handleDarkmodeSwitch = (e) => {
         const darkmodeSwitch = document.getElementById("darkmode");
@@ -19,7 +21,7 @@ function Menu (props) {
             <Image src='/logo.svg' alt="Logo da AluraTube" width={127} height={25} />
 
             <form className="search__container" onSubmit={(e) => {e.preventDefault()}}>
-                <input type='text' className="search__input" placeholder="Video" />
+                <input type='text' className="search__input" placeholder="Video" onChange={(e) => setValorDaBusca(e.target.value)} value={valorDaBusca} />
                 <button type="submit" className="search__button">🔎</button>
             </form>
 
