@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Header from '../components/Header/Header'
+import Playlists from '../components/Playlists'
+import Favoritos from '../components/Favoritos'
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -12,13 +15,9 @@ export default function Home() {
 
       <Header />
 
-      <main >
-        Listas da TimeLine
-      </main>
+      <Playlists />
 
-      <footer>
-        Favoritos
-      </footer>
+      <Favoritos />
     </>
   )
 }

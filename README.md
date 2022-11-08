@@ -9,12 +9,12 @@ Este repositório guarda a minha versão do AluraTue, desenvolvido na Imersão R
 | :rocket: URL         | https://imersaoreact5.vercel.app/
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](#vitrinedev)
+![](https://i.imgur.com/sJYZOe6.png#vitrinedev)
 
 ## Detalhes do Projeto
 A Imersão React tem como objetivo apresentar a biblioteca React para os participantes, com a criação de um projeto do zero usando a biblioteca, cujo objetivo é trazer a tona este <a href="https://www.figma.com/file/1acrju7CLwHkSh6e7xEk9h/Aluratube">Wireframe do Figma</a>
 
-### Dia 1 (WIP)
+### Dia 1 ✅
 No dia 1, foi realizada a instalação das bibliotecas e a criação da homepage e seus componentes principais.
 
 ### Dia 2

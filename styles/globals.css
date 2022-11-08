@@ -20,7 +20,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: Helvetica, sans-serif;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -50,4 +50,8 @@ table {
 /* CSS Global: */
 * {
 	box-sizing: border-box;
+}
+
+main {
+	padding: 10px 28px;
 }

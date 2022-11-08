@@ -28,6 +28,11 @@ const StyledMenu = styled.nav`
         background-color: #F0F0F0;
         font-size: 16px;
         padding: 0;
+        cursor: pointer;
+    }
+
+    .search__button:hover {
+        background-color: #E5E5E5;
     }
 
     .darkmode__switch {
@@ -37,7 +42,7 @@ const StyledMenu = styled.nav`
         cursor: pointer;
         background: #333333;
         border-radius: 25px;
-        padding: 0 1px;
+        padding: 0 2px;
         display: flex;
         align-items: center;
     }
@@ -45,11 +50,13 @@ const StyledMenu = styled.nav`
     .darkmode__switch::before {
         content: "🌙";
         font-size: 16px;
+        margin-bottom: 1px;
     }
 
     .darkmode__switch::after {
         content: "☀️";
         font-size: 16px;
+        margin-bottom: 1px;
     }
 
     .darkmode__switch::-webkit-slider-thumb {
