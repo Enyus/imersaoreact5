@@ -6,7 +6,7 @@ Este repositório guarda a minha versão do AluraTue, desenvolvido na Imersão R
 | -------------  | --- |
 | :sparkles: Nome        | **AluraTube - Imersão React 5**
 | :label: Tecnologias | ReactJs, JavaScript, NextJs, Supabase, Styled Components
-| :rocket: URL         | 
+| :rocket: URL         | https://imersaoreact5.vercel.app/
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![](#vitrinedev)
