@@ -23,6 +23,7 @@ const StyledMain = styled.main`
     grid-auto-columns: minmax(200px, 1fr);
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
   }
 
   .video__link {
@@ -46,6 +47,29 @@ const StyledMain = styled.main`
     color: inherit;
     padding-top: 8px;
     padding-right: 24px;
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: ${({ theme }) => theme.borderBase} ${({ theme }) => theme.backgroundLevel1};
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.backgroundLevel1};
+    border-radius: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.borderBase};
+    border-radius: 10px;
+    border: 3px solid ${({ theme }) => theme.backgroundLevel1};
   }
 `;
 
