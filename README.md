@@ -22,11 +22,11 @@ Aprendendo sobre states e State-Drilling.
 
 ### Dia 3 ✅
 Usando ContextAPI para implementar dark e light mode. <br>
-<img src="https://media.giphy.com/media/CJHCSlobvk3omn4dhn/giphy-downsized.gif" />
+<center><img src="https://media.giphy.com/media/CJHCSlobvk3omn4dhn/giphy-downsized.gif" /></center>
 
-Com a ajuda da <a href="https://github.com/jhoisz">Jhoisnáyra</a> e do <a href="https://github.com/EdiJunior88">Edivaldo</a> na comunidade do discord, consegui estilizar as barras de rolagem e ficou muito mais agradável!
+Com a ajuda da <a href="https://github.com/jhoisz">@Jhoisnáyra</a> e do <a href="https://github.com/EdiJunior88">@Edivaldo</a> na comunidade do discord, consegui estilizar as barras de rolagem e ficou muito mais agradável!
 
-<img src="https://media.giphy.com/media/bfrFdB612gN6OKj1uy/giphy-downsized.gif" />
+<center><img src="https://media.giphy.com/media/bfrFdB612gN6OKj1uy/giphy-downsized.gif" /></center>
 
 ### Dia 4
 
