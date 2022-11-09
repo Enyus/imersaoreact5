@@ -1,6 +1,6 @@
 import React from "react";
 import StyledUser from "./styles";
-import config from "../../config.json";
+import config from "../../../../config.json";
 
 function User(props) {
     return (

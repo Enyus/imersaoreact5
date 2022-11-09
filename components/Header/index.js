@@ -1,15 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import Menu from "../Menu";
-import User from "../User";
+import User from "./components/User";
 import StyledHeader from "./styles";
 import config from "../../config.json";
 
-function Header({ valorDoFiltro, setValorDoFiltro }) {
+function Header() {
   return (
     <StyledHeader>
-      <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
-
       <Image
         src={config.bg}
         height={230}

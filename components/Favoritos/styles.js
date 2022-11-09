@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
     padding: 10px 28px;
+    background-color: ${ ({theme}) => theme.backgroundBase};
 
     .favoritos__title {
         font-weight: bold;
         margin: 16px 0;
+        color: ${ ({theme}) => theme.textColorBase};
     }
 
     .favoritos__container {
@@ -15,7 +17,7 @@ const StyledFooter = styled.footer`
     }
 
     .favoritos__link {
-        color: unset;
+        color: ${ ({theme}) => theme.textColorBase};
         text-decoration: none;
     }
 

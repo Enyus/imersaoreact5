@@ -19,6 +19,7 @@ const StyledUser = styled.section`
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 1px;
+        color: ${ ({theme}) => theme.textColorBase};
     }
 
     .cargo__usuario {

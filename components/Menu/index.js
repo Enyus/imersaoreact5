@@ -1,31 +1,25 @@
-import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import DarkModeSwitch from "./components/DarkModeSwitch";
+import Logo from "./components/Logo";
 import StyledMenu from "./styles";
 
 function Menu ({ valorDoFiltro, setValorDoFiltro }) {
     const valorDaBusca = valorDoFiltro;
     const setValorDaBusca = setValorDoFiltro;
 
-    const handleDarkmodeSwitch = (e) => {
-        const darkmodeSwitch = document.getElementById("darkmode");
-        if (darkmodeSwitch.value == 1) {
-            darkmodeSwitch.value = 0;
-        } else {
-            darkmodeSwitch.value = 1;
-        }
-        console.log(darkmodeSwitch.value);
-    }
-
     return (
         <StyledMenu>
-            <Image src='/logo.svg' alt="Logo da AluraTube" width={127} height={25} />
+            <Link href='/'>
+                <Logo />
+            </Link>
 
             <form className="search__container" onSubmit={(e) => {e.preventDefault()}}>
                 <input type='text' className="search__input" placeholder="Video" onChange={(e) => setValorDaBusca(e.target.value)} value={valorDaBusca} />
                 <button type="submit" className="search__button">🔎</button>
             </form>
 
-            <input type="range" min="0" max="1" step="1" className="darkmode__switch" id="darkmode" onClick={handleDarkmodeSwitch} />
+            <DarkModeSwitch />
         </StyledMenu>
     )
 };

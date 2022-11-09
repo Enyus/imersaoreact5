@@ -17,11 +17,13 @@ A Imersão React tem como objetivo apresentar a biblioteca React para os partici
 ### Dia 1 ✅
 No dia 1, foi realizada a instalação das bibliotecas e a criação da homepage e seus componentes principais.
 
-### Dia 2 (WIP) ✅
+### Dia 2 ✅
 Aprendendo sobre states e State-Drilling.
 (Nessa aprendi mais CSS do que React kkkk)
 
-### Dia 3
+### Dia 3 ✅
+Usando ContextAPI para implementar dark e light mode.
+<img src="https://media.giphy.com/media/CJHCSlobvk3omn4dhn/giphy.gif" />
 
 ### Dia 4
 
