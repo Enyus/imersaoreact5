@@ -1,10 +1,9 @@
 # AluraTube - Imersão React 5
-
 Este repositório guarda a minha versão do AluraTue, desenvolvido na Imersão React 5, entre 07 e 12/11/2022.
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
-| :sparkles: Nome        | **AluraTube - Imersão React 5**
+| :sparkles: Nome        | <center>**AluraTube - Imersão React 5** <br><img src="./public/favicon.png" /></center>
 | :label: Tecnologias | ReactJs, JavaScript, NextJs, Supabase, Styled Components
 | :rocket: URL         | https://imersaoreact5.vercel.app/
 
