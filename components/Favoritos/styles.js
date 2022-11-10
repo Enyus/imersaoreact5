@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
 
     .favoritos__container {
         display: flex;
-        gap: 8px;
+        gap: 16px;
         margin-bottom: 16px;
     }
 

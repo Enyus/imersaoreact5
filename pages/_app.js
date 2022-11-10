@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import "../styles/globals.css";
+import RegisterVideo from '../components/RegisterVideo'
 
 const theme = {
   light: {
@@ -37,6 +38,7 @@ function MyApp({ Component, pageProps }) {
     <ColorModeContext.Provider value={{ mode: mode, setMode: setMode, toggleMode: toggleMode }} >
       <ThemeProvider theme={theme[mode]}>
         <Component {...pageProps} />
+        <RegisterVideo />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
