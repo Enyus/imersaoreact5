@@ -75,6 +75,13 @@ const StyledModal = styled.div`
     color: red;
     margin-top: 5px;
   }
+
+  .thumb__preview {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    width: 100%;
+    margin-top: 5px;
+  }
 `;
 
 export default StyledModal;

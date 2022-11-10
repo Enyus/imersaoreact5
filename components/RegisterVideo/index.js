@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import StyledModal from "./styles";
+import getYouTubeThumb from "../../assets/getYouTubeThumb";
 import useForm from "../../assets/useForm";
+import StyledModal from "./styles";
 
 function RegisterVideo(props) {
   const [showModal, setShowModal] = useState(false);
@@ -64,10 +65,12 @@ function RegisterVideo(props) {
               <span className="form__error">{formCadastro.errors.url}</span>
             )}
 
+            {!formCadastro.errors.exist.url ? <img src={getYouTubeThumb(formCadastro.values.url)} className="thumb__preview" /> : null }
+
             <button
               type="submit"
               className="submitbutton"
-              disabled={formCadastro.errors.exist}
+              disabled={!(!formCadastro.errors.exist.title && !formCadastro.errors.exist.url)}
             >
               Cadastrar
             </button>

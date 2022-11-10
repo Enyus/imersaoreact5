@@ -7,10 +7,15 @@ function validateInput(inputName, inputValue) {
     return true;
   };
 
-  const validateUrl = (titleUrl) => {
-    if (titleUrl.length < 11 || titleUrl.length > 150) {
+  const validateUrl = (urlValue) => {
+    if (urlValue.length < 11 || urlValue.length > 150) {
         return false;
       }
+    
+    if (!urlValue.includes("https://www.youtube.com/watch?v=")) {
+      return false
+    }
+    
       return true;
   }
 
