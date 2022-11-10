@@ -66,6 +66,15 @@ const StyledModal = styled.div`
     border-radius: 3px;
     cursor: pointer;
   }
+
+  .submitbutton:disabled {
+    opacity: 0.5;
+  }
+
+  .form__error {
+    color: red;
+    margin-top: 5px;
+  }
 `;
 
 export default StyledModal;

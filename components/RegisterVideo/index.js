@@ -5,8 +5,8 @@ import useForm from "../../assets/useForm";
 function RegisterVideo(props) {
   const [showModal, setShowModal] = useState(false);
   const formCadastro = useForm({
-    initialValues: { title: "", url: "" }
-  })
+    initialValues: { title: "", url: "" },
+  });
 
   return (
     <StyledModal>
@@ -22,7 +22,7 @@ function RegisterVideo(props) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(formCadastro.values)
+            console.log(formCadastro.values);
             setShowModal(false);
             formCadastro.clearForm();
           }}
@@ -31,7 +31,10 @@ function RegisterVideo(props) {
           <div>
             <button
               type="button"
-              onClick={(e) => setShowModal(false)}
+              onClick={(e) => {
+                setShowModal(false); 
+                formCadastro.clearForm();
+            }}
               className="closebutton"
             >
               X
@@ -45,6 +48,9 @@ function RegisterVideo(props) {
               value={formCadastro.values.title}
               onChange={formCadastro.handleChange}
             />
+            {formCadastro.errors.title == "" ? null : (
+              <span className="form__error">{formCadastro.errors.title}</span>
+            )}
 
             <input
               type="text"
@@ -54,8 +60,15 @@ function RegisterVideo(props) {
               value={formCadastro.values.url}
               onChange={formCadastro.handleChange}
             />
+            {formCadastro.errors.url == "" ? null : (
+              <span className="form__error">{formCadastro.errors.url}</span>
+            )}
 
-            <button type="submit" className="submitbutton">
+            <button
+              type="submit"
+              className="submitbutton"
+              disabled={formCadastro.errors.exist}
+            >
               Cadastrar
             </button>
           </div>
