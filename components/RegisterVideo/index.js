@@ -3,7 +3,7 @@ import StyledModal from "./styles";
 import useForm from "../../assets/useForm";
 
 function RegisterVideo(props) {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const formCadastro = useForm({
     initialValues: { title: "", url: "" }
   })
