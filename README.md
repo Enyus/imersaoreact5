@@ -28,8 +28,9 @@ Com a ajuda da <a href="https://github.com/jhoisz">@Jhoisnáyra</a> e do <a href
 
 <center><img src="https://media.giphy.com/media/bfrFdB612gN6OKj1uy/giphy-downsized.gif" /></center>
 
-### Dia 4 (WIP)
+### Dia 4 ✅
 Aprofundando os conhecimentos do useState e criando nosso próprio Hook para manipulação de formulário.
+<center><img src="" /></center>
 
 ### Dia 5
 
