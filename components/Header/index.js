@@ -1,21 +1,23 @@
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import User from "./components/User";
 import StyledHeader from "./styles";
-import config from "../../config.json";
+import { UserContext } from '../../pages/_app';
 
 function Header() {
+  const {user} = useContext(UserContext);
+  
   return (
     <StyledHeader>
       <Image
-        src={config.bg}
+        src={user.bg}
         height={230}
         width={1512}
         alt="Banner"
         className="banner"
       />
 
-      <User />
+      <User usuario={user} />
     </StyledHeader>
   );
 }
