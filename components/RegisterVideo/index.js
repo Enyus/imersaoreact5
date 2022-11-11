@@ -1,13 +1,59 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import getYouTubeThumb from "../../assets/getYouTubeThumb";
 import useForm from "../../assets/useForm";
 import StyledModal from "./styles";
+import {UserContext} from '../../pages/_app';
+import config from '../../config.json';
 
 function RegisterVideo(props) {
+  const { user } = useContext(UserContext)
   const [showModal, setShowModal] = useState(false);
+  const [playlists, setPlayLists] = useState([]);
   const formCadastro = useForm({
     initialValues: { title: "", url: "" },
   });
+
+  useEffect( () => {
+    const playlistsFromDB = async () => {
+      const res = await fetch("/api/getPlaylists", {
+        body: JSON.stringify({
+          user: user.id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      const result = await res.json();
+
+      if (result.error) {
+        console.log(result.error);
+        setPlayLists(Object.keys(config.playlists));
+        return;
+      }
+
+      let playlistsDB = [];
+      result.data.map((playlist) => {
+        playlistsDB.push(playlist.playlist);
+      });
+
+      // console.log(playlistsDB);
+      setPlayLists(playlistsDB);
+    };
+
+    playlistsFromDB();
+  }, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formCadastro.values);
+
+
+
+    setShowModal(false);
+    formCadastro.clearForm();
+  }
 
   return (
     <StyledModal>
@@ -21,12 +67,7 @@ function RegisterVideo(props) {
 
       {showModal && (
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log(formCadastro.values);
-            setShowModal(false);
-            formCadastro.clearForm();
-          }}
+          onSubmit={handleSubmit}
           className="addform"
         >
           <div>
@@ -66,6 +107,13 @@ function RegisterVideo(props) {
             )}
 
             {!formCadastro.errors.exist.url ? <img src={getYouTubeThumb(formCadastro.values.url)} className="thumb__preview" /> : null }
+
+            <select name="playlist" className="playlist__select">
+              <option selected disabled defaultValue={''}>Playlist</option>
+              {playlists.length > 0
+                ? playlists.map( (playlist) => <option key={playlist}>{playlist}</option> )
+                : <option>Carregando...</option>}
+            </select>
 
             <button
               type="submit"

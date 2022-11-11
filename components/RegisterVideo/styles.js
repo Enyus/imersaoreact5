@@ -82,6 +82,16 @@ const StyledModal = styled.div`
     width: 100%;
     margin-top: 5px;
   }
+
+  .playlist__select {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: ${({ theme }) => theme.backgroundBase};
+    border: 1px solid ${({ theme }) => theme.borderBase};
+    border-radius: 3px;
+    color: ${({ theme }) => theme.textColorBase};
+    text-transform: capitalize;
+  }
 `;
 
 export default StyledModal;
