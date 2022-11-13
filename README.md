@@ -32,8 +32,9 @@ Com a ajuda da <a href="https://github.com/jhoisz">@Jhoisnáyra</a> e do <a href
 Aprofundando os conhecimentos do useState e criando nosso próprio Hook para manipulação de formulário.
 <center><img src="https://media.giphy.com/media/LI407ZH0p0NwjtZ7f2/giphy-downsized.gif" /></center>
 
-### Dia 5 (WIP)
+### Dia 5 ✅
 Usando o serviço Supabase para agir como o banco de dados e 'backend' da aplicação AluraTube.
+<center><img src="https://media.giphy.com/media/aC5drF1M1pz6H3whgB/giphy-downsized.gif" /></center>
 
 ## Para Rodar
 ```bash

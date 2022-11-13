@@ -1,12 +1,16 @@
 import { supabase } from '../../assets/supabase';
 
-export default async function getPlaylists(req, res) {
-    const { user } = req.body;
+export default async function addVideos(req, res) {
+    const { title, url, thumb, playlist_id } = req.body;
 
     const { data, error } = await supabase
-        .from('playlists')
-        .select('id, playlist')
-        .eq('user_id', user)
+        .from('videos')
+        .insert([{
+            title,
+            url,
+            thumb,
+            playlist_id
+        }])
 
     if (error) {
         console.log(error);

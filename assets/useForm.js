@@ -3,7 +3,7 @@ import validateInput from "./validateInput";
 
 function useForm(formProps) {
   const [values, setValues] = useState(formProps.initialValues);
-  const [errors, setErrors] = useState({ title: "", url: "", exist: {title: true, url: true} });
+  const [errors, setErrors] = useState({ title: "", url: "", exist: {title: true, url: true, playlist:true} });
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -16,6 +16,9 @@ function useForm(formProps) {
         break;
       case "url":
         message = "A url do vídeo deve ter entre 11 e 150 caracteres. Para conseguir uma boa thumbnail, recomendamos o uso de um link de vídeo do YouTube.";
+        break;
+      case "playlist":
+        message = "Selecione uma playlist.";
         break;
     }
 
@@ -30,8 +33,8 @@ function useForm(formProps) {
   };
 
   const clearForm = () => {
-    setValues({ title: "", url: "" });
-    setErrors({ title: "", url: "", exist: {title: true, url: true} });
+    setValues({ title: "", url: "", playlist:"" });
+    setErrors({ title: "", url: "", exist: {title: true, url: true, playlist:true} });
   };
 
   return {

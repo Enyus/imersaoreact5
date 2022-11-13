@@ -13,10 +13,17 @@ function validateInput(inputName, inputValue) {
       }
     
     if (!urlValue.includes("https://www.youtube.com/watch?v=")) {
-      return false
+      return false;
     }
     
       return true;
+  }
+
+  const validatePlaylist = (playlistValue) => {
+    if (playlistValue == "") {
+      return false;
+    }
+    return true;
   }
 
   switch (inputName) {
@@ -24,6 +31,8 @@ function validateInput(inputName, inputValue) {
       return validateTitle(inputValue);
     case "url":
       return validateUrl(inputValue);
+    case "playlist":
+      return validatePlaylist(inputValue);
     default:
       return false;
   }

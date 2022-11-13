@@ -1,19 +1,22 @@
+import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import getYouTubeThumb from "../../assets/getYouTubeThumb";
 import useForm from "../../assets/useForm";
+import config from "../../config.json";
+import { UserContext } from "../../pages/_app";
 import StyledModal from "./styles";
-import {UserContext} from '../../pages/_app';
-import config from '../../config.json';
 
 function RegisterVideo(props) {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
   const [playlists, setPlayLists] = useState([]);
+  const [adicionandoVideo, setAdicionandoVideo] = useState(false)
   const formCadastro = useForm({
-    initialValues: { title: "", url: "" },
+    initialValues: { title: "", url: "", playlist: "" },
   });
+  const router = useRouter();
 
-  useEffect( () => {
+  useEffect(() => {
     const playlistsFromDB = async () => {
       const res = await fetch("/api/getPlaylists", {
         body: JSON.stringify({
@@ -33,27 +36,44 @@ function RegisterVideo(props) {
         return;
       }
 
-      let playlistsDB = [];
-      result.data.map((playlist) => {
-        playlistsDB.push(playlist.playlist);
-      });
-
-      // console.log(playlistsDB);
-      setPlayLists(playlistsDB);
+      // console.log(result)
+      setPlayLists(result.data);
     };
 
     playlistsFromDB();
-  }, [])
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formCadastro.values);
+    setAdicionandoVideo(true);
 
+    const res = await fetch("/api/addVideo", {
+      body: JSON.stringify({
+        title: formCadastro.values.title,
+        url: formCadastro.values.url,
+        thumb: getYouTubeThumb(formCadastro.values.url),
+        playlist_id: Number(formCadastro.values.playlist),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
 
+    const result = await res.json();
 
+    console.log(result)
+
+    if (result.error) {
+      console.log(result.error);
+    }
+
+    setAdicionandoVideo(false);
     setShowModal(false);
     formCadastro.clearForm();
-  }
+    router.reload();
+  };
 
   return (
     <StyledModal>
@@ -66,17 +86,14 @@ function RegisterVideo(props) {
       </button>
 
       {showModal && (
-        <form
-          onSubmit={handleSubmit}
-          className="addform"
-        >
+        <form onSubmit={handleSubmit} className="addform">
           <div>
             <button
               type="button"
               onClick={(e) => {
-                setShowModal(false); 
+                setShowModal(false);
                 formCadastro.clearForm();
-            }}
+              }}
               className="closebutton"
             >
               X
@@ -106,21 +123,48 @@ function RegisterVideo(props) {
               <span className="form__error">{formCadastro.errors.url}</span>
             )}
 
-            {!formCadastro.errors.exist.url ? <img src={getYouTubeThumb(formCadastro.values.url)} className="thumb__preview" /> : null }
+            {!formCadastro.errors.exist.url ? (
+              <img
+                src={getYouTubeThumb(formCadastro.values.url)}
+                className="thumb__preview"
+              />
+            ) : null}
 
-            <select name="playlist" className="playlist__select">
-              <option selected disabled defaultValue={''}>Playlist</option>
-              {playlists.length > 0
-                ? playlists.map( (playlist) => <option key={playlist}>{playlist}</option> )
-                : <option>Carregando...</option>}
+            <select
+              name="playlist"
+              className="playlist__select"
+              value={formCadastro.values.playlist}
+              onChange={formCadastro.handleChange}
+            >
+              <option disabled value="">
+                Selecione uma Playlist
+              </option>
+              {playlists.length > 0 ? (
+                playlists.map((playlist) => (
+                  <option key={playlist.id} value={`${playlist.id}`}>
+                    {playlist.playlist}
+                  </option>
+                ))
+              ) : (
+                <option>Carregando...</option>
+              )}
             </select>
+            {formCadastro.errors.playlist == "" ? null : (
+              <span className="form__error">{formCadastro.errors.playlist}</span>
+            )}
 
             <button
               type="submit"
               className="submitbutton"
-              disabled={!(!formCadastro.errors.exist.title && !formCadastro.errors.exist.url)}
+              disabled={
+                !(
+                  !formCadastro.errors.exist.title &&
+                  !formCadastro.errors.exist.url &&
+                  !formCadastro.errors.exist.playlist
+                )
+              }
             >
-              Cadastrar
+              {adicionandoVideo ? "Adicionando Vídeo..." : "Cadastrar"}
             </button>
           </div>
         </form>
