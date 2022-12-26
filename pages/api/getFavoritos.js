@@ -8,9 +8,12 @@ export default async function getVideos(req, res) {
         .select('github')
         .eq('user_id', user)
 
+    // console.log(data)
+
     if (error) {
         console.log(error);
-        return res.status(401).json({ error: error.message })
+        const fakeData = [ { github: 'peas' }, { github: 'omariosouto' } ]
+        return res.status(401).json({ data: fakeData })
     }
 
     return res.status(200).json({ data })

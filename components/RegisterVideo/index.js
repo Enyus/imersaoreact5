@@ -10,7 +10,8 @@ function RegisterVideo(props) {
   const { user } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
   const [playlists, setPlayLists] = useState([]);
-  const [adicionandoVideo, setAdicionandoVideo] = useState(false)
+  const [adicionandoVideo, setAdicionandoVideo] = useState(false);
+  const [erroSupabase, setErroSupabase] = useState("");
   const formCadastro = useForm({
     initialValues: { title: "", url: "", playlist: "" },
   });
@@ -63,10 +64,14 @@ function RegisterVideo(props) {
 
     const result = await res.json();
 
-    console.log(result)
+    console.log(result);
 
     if (result.error) {
       console.log(result.error);
+      setAdicionandoVideo(false);
+      formCadastro.clearForm();
+      setErroSupabase("Sentimos muito, mas o banco de dados não está acessível no momento.")
+      return;
     }
 
     setAdicionandoVideo(false);
@@ -150,7 +155,9 @@ function RegisterVideo(props) {
               )}
             </select>
             {formCadastro.errors.playlist == "" ? null : (
-              <span className="form__error">{formCadastro.errors.playlist}</span>
+              <span className="form__error">
+                {formCadastro.errors.playlist}
+              </span>
             )}
 
             <button
@@ -166,6 +173,8 @@ function RegisterVideo(props) {
             >
               {adicionandoVideo ? "Adicionando Vídeo..." : "Cadastrar"}
             </button>
+
+            <span className="form__error">{erroSupabase}</span>
           </div>
         </form>
       )}
